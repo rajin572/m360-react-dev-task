@@ -1,4 +1,4 @@
-import { TProduct, TProductsResponse } from "../../../types";
+import { TCategory, TProduct, TProductsResponse } from "../../../types";
 import { baseApi } from "../../api/baseApi";
 
 export const productApi = baseApi.injectEndpoints({
@@ -14,8 +14,9 @@ export const productApi = baseApi.injectEndpoints({
       query: (id) => `/products/${id}`,
       providesTags: ["products"],
     }),
-    getAllCategories: builder.query<string[], void>({
+    getAllCategories: builder.query<TCategory[], void>({
       query: () => `/products/categories`,
+      providesTags: ["categories"],
     }),
     updateProductData: builder.mutation<
       TProduct,
