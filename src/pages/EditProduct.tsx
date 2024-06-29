@@ -1,6 +1,15 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Form, Input, Button, Select, Space, InputNumber } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  Select,
+  Space,
+  InputNumber,
+  Row,
+  Col,
+} from "antd";
 import { FormListFieldData } from "antd/lib/form/FormList";
 import { productApi } from "../redux/features/products/products";
 import Spinner from "../components/ui/Spinner"; // Assuming you meant Spinner instead of Spninner
@@ -85,40 +94,58 @@ const EditProduct: React.FC = () => {
         reviews: product?.reviews || [],
       }}
     >
-      <Form.Item name="title" label="Title" rules={[{ required: true }]}>
-        <Input />
-      </Form.Item>
-      <Form.Item name="brand" label="Brand" rules={[{ required: true }]}>
-        <Input />
-      </Form.Item>
-      <Form.Item name="price" label="Price" rules={[{ required: true }]}>
-        <Input type="number" />
-      </Form.Item>
-      <Form.Item
-        name="discountPercentage"
-        label="Discount Percentage"
-        rules={[{ required: true }]}
-      >
-        <Input type="number" />
-      </Form.Item>
-      <Form.Item name="stock" label="Stock" rules={[{ required: true }]}>
-        <Input type="number" />
-      </Form.Item>
-      <Form.Item name="category" label="Category" rules={[{ required: true }]}>
-        <Select>
-          {categories?.map((category) => (
-            <Select.Option key={category.slug} value={category.name}>
-              {category.name}
-            </Select.Option>
-          ))}
-        </Select>
-      </Form.Item>
+      <Row gutter={12}>
+        <Col xs={24} lg={12}>
+          <Form.Item name="title" label="Title" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+        </Col>
+        <Col xs={24} lg={12}>
+          <Form.Item name="brand" label="Brand" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+        </Col>
+        <Col xs={24} lg={12}>
+          <Form.Item name="price" label="Price" rules={[{ required: true }]}>
+            <Input type="number" />
+          </Form.Item>
+        </Col>
+        <Col xs={24} lg={12}>
+          <Form.Item
+            name="discountPercentage"
+            label="Discount Percentage"
+            rules={[{ required: true }]}
+          >
+            <Input type="number" />
+          </Form.Item>
+        </Col>
+        <Col xs={24} lg={12}>
+          <Form.Item name="stock" label="Stock" rules={[{ required: true }]}>
+            <Input type="number" />
+          </Form.Item>
+        </Col>
+        <Col xs={24} lg={12}>
+          <Form.Item
+            name="category"
+            label="Category"
+            rules={[{ required: true }]}
+          >
+            <Select>
+              {categories?.map((category) => (
+                <Select.Option key={category.slug} value={category.name}>
+                  {category.name}
+                </Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </Col>
+      </Row>
       <Form.Item
         name="description"
         label="Description"
         rules={[{ required: true }]}
       >
-        <Input.TextArea rows={4} />
+        <Input.TextArea rows={8} />
       </Form.Item>
       <Form.List name="reviews">
         {(fields: FormListFieldData[], { add, remove }) => (
@@ -161,13 +188,13 @@ const EditProduct: React.FC = () => {
                 >
                   <InputNumber placeholder="Rating" />
                 </Form.Item>
-                <Button type="dashed" onClick={() => remove(name)}>
+                <Button type="default" onClick={() => remove(name)}>
                   Remove
                 </Button>
               </Space>
             ))}
             <Form.Item>
-              <Button type="dashed" onClick={() => add()} block>
+              <Button type="default" onClick={() => add()} block>
                 Add Review
               </Button>
             </Form.Item>
