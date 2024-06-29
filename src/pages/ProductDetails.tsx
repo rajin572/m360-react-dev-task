@@ -21,7 +21,7 @@ const ProductDetails = () => {
 
   if (isFetching) {
     return (
-      <div className="h-fit">
+      <div>
         <Spninner />
       </div>
     );

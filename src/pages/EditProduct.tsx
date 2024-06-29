@@ -73,7 +73,7 @@ const EditProduct: React.FC = () => {
 
   if (productLoading || categoriesLoading) {
     return (
-      <div className="h-fit">
+      <div>
         <Spinner />
       </div>
     );
