@@ -25,10 +25,12 @@ const AppFooter = () => {
   return (
     <Footer
       style={{
+        maxWidth: "1250px",
+        width: "90%",
+        margin: "50px auto",
         background: "#1c1e22",
         color: "#fff",
         textAlign: "center",
-        padding: "20px 30px",
       }}
     >
       <Row gutter={[16, 16]} justify="space-between">

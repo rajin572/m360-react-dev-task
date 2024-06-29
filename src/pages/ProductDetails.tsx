@@ -27,7 +27,13 @@ const ProductDetails = () => {
     );
   }
   return (
-    <div style={{ width: "90%", margin: "60px auto" }}>
+    <div
+      style={{
+        maxWidth: "1250px",
+        width: "90%",
+        margin: "50px auto",
+      }}
+    >
       {/* //* Product Detail */}
       <div
         style={{

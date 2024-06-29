@@ -7,12 +7,17 @@ const Navbar = () => {
     <div>
       <Header>
         <Menu theme="dark" mode="horizontal">
-          <Menu.Item key="1">
-            <Link to="/">Products</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/categories">Category</Link>
-          </Menu.Item>
+          <div
+            style={{
+              maxWidth: "1250px",
+              width: "90%",
+              margin: "50px auto",
+            }}
+          >
+            <Menu.Item key="1">
+              <Link to="/">Products</Link>
+            </Menu.Item>
+          </div>
         </Menu>
       </Header>
     </div>

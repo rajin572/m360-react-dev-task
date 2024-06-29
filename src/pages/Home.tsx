@@ -1,9 +1,15 @@
-import ProductsTable from "../components/shared/ProductsTable";
+import ProductsTable from "../components/ui/ProductsTable";
 
 const Home = () => {
   return (
     <div>
-      <div style={{ width: "90%", margin: "60px auto" }}>
+      <div
+        style={{
+          maxWidth: "1250px",
+          width: "90%",
+          margin: "50px auto",
+        }}
+      >
         <ProductsTable />
       </div>
     </div>

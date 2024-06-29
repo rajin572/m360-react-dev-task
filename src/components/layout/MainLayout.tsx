@@ -1,5 +1,5 @@
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./Navbar";
 import AppFooter from "./Footer";
 const MainLayout = () => {
   return (
