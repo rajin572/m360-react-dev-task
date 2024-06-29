@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import ProductsTable from "../components/shared/ProductsTable";
 
 const Home = () => {
   return (
     <div>
-      <h1>This Is Home Page</h1>
-      <Link to="/products">Products</Link>
+      <div style={{ width: "90%", margin: "60px auto" }}>
+        <ProductsTable />
+      </div>
     </div>
   );
 };

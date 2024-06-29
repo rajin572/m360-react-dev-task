@@ -1,7 +1,20 @@
+import { Menu } from "antd";
+import { Header } from "antd/es/layout/layout";
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <div>
-      <h2>This Is Nav</h2>
+      <Header>
+        <Menu theme="dark" mode="horizontal">
+          <Menu.Item key="1">
+            <Link to="/">Products</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/categories">Category</Link>
+          </Menu.Item>
+        </Menu>
+      </Header>
     </div>
   );
 };

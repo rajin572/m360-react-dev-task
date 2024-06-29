@@ -1,31 +1,27 @@
+import { TProduct, TProductsResponse } from "../../../types";
 import { baseApi } from "../../api/baseApi";
 
 export const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    allProduct: builder.query({
-      query: () => ({
-        url: "products",
-        method: "GET",
-      }),
-      providesTags: ["products"],
+    getAllProducts: builder.query<
+      TProductsResponse,
+      { limit: number; skip: number }
+    >({
+      query: ({ limit, skip }) =>
+        `https://dummyjson.com/products?limit=${limit}&skip=${skip}`,
     }),
-    getProductDetails: builder.query({
-      query: (id) => ({
-        url: `products/${id}`,
-        method: "GET",
-      }),
+    getProductById: builder.query<TProduct, number>({
+      query: (id) => `https://dummyjson.com/products/${id}`,
     }),
-    getProductCategories: builder.query({
-      query: () => ({
-        url: "products/categories",
-        method: "GET",
-      }),
-    }),
+    // getCategories: builder.query<string[], void>({
+    //   query: () => `products / categories`,
+    // }),
+    // updateProduct: builder.mutation<Product,{ id: number; product: Partial<Product> }>({
+    //   query: ({ id, product }) => ({
+    //     url: `products/${id}`,
+    //     method: "PATCH",
+    //     body: product,
+    //   }),
+    // }),
   }),
 });
-
-// export const {
-//   useAllProductQuery,
-//   useGetProductDetailsQuery,
-//   useGetProductCategoriesQuery,
-// } = productApi;
