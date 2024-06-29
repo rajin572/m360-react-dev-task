@@ -28,7 +28,6 @@ const ProductDetails = () => {
   }
   return (
     <div style={{ width: "90%", margin: "60px auto" }}>
-      <h1>Product {id}</h1>
       {/* //* Product Detail */}
       <div
         style={{

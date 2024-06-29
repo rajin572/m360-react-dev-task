@@ -7,21 +7,26 @@ export const productApi = baseApi.injectEndpoints({
       TProductsResponse,
       { limit: number; skip: number }
     >({
-      query: ({ limit, skip }) =>
-        `https://dummyjson.com/products?limit=${limit}&skip=${skip}`,
+      query: ({ limit, skip }) => `/products?limit=${limit}&skip=${skip}`,
+      providesTags: ["products"],
     }),
     getProductById: builder.query<TProduct, number>({
-      query: (id) => `https://dummyjson.com/products/${id}`,
+      query: (id) => `/products/${id}`,
+      providesTags: ["products"],
     }),
-    // getCategories: builder.query<string[], void>({
-    //   query: () => `products / categories`,
-    // }),
-    // updateProduct: builder.mutation<Product,{ id: number; product: Partial<Product> }>({
-    //   query: ({ id, product }) => ({
-    //     url: `products/${id}`,
-    //     method: "PATCH",
-    //     body: product,
-    //   }),
-    // }),
+    getAllCategories: builder.query<string[], void>({
+      query: () => `/products/categories`,
+    }),
+    updateProductData: builder.mutation<
+      TProduct,
+      { id: number; product: Partial<TProduct> }
+    >({
+      query: ({ id, product }) => ({
+        url: `products/${id}`,
+        method: "PATCH",
+        body: product,
+      }),
+      invalidatesTags: ["products"],
+    }),
   }),
 });

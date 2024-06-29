@@ -81,9 +81,11 @@ const ProductsTable = () => {
             <Link to={`/products/${record.id}`}>
               <Button type="primary">View</Button>
             </Link>
-            <Button>
-              <FaRegEdit />
-            </Button>
+            <Link to={`/edi-product/${record.id}`}>
+              <Button>
+                <FaRegEdit />
+              </Button>
+            </Link>
           </div>
         );
       },

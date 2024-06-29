@@ -50,3 +50,9 @@ export type TProductsResponse = {
   skip: number;
   limit: number;
 };
+
+export type TCategory = {
+  slug: string;
+  name: string;
+  url: string;
+};
