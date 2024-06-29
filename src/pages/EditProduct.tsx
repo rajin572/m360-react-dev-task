@@ -50,18 +50,25 @@ const EditProduct: React.FC = () => {
     }
   }, [product, form]);
 
-  const onFinish = (values: TProduct) => {
-    const formattedValues = {
-      ...values,
-      price: Number(values.price),
-      reviews: values.reviews.map((review: TReview) => ({
-        ...review,
-        rating: Number(review.rating),
-      })),
-    };
+  const onFinish = async (values: TProduct) => {
+    try {
+      const formattedValues = {
+        ...values,
+        price: Number(values.price),
+        reviews: values.reviews.map((review: TReview) => ({
+          ...review,
+          rating: Number(review.rating),
+        })),
+      };
 
-    console.log("Updated Product:", formattedValues);
-    updateProduct({ id: Number(id), product: formattedValues });
+      console.log("Updated Product:", formattedValues);
+      await updateProduct({
+        id: Number(id),
+        product: formattedValues,
+      }).unwrap();
+    } catch (error) {
+      console.error("Error updating product:", error);
+    }
   };
 
   if (productLoading || categoriesLoading) {
